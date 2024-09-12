@@ -736,6 +736,7 @@ return {
           "yamlfix",
           "taplo",
           "shellcheck",
+          "ts_ls",
         },
       })
     end,
