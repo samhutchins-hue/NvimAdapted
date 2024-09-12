@@ -229,7 +229,6 @@ return {
         svelte = { "eslint_d" },
         kotlin = { "ktlint" },
         terraform = { "tflint" },
-        ruby = { "standardrb" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -264,7 +263,6 @@ return {
           graphql = { { "prettierd", "prettier" } },
           java = { "google-java-format" },
           kotlin = { "ktlint" },
-          ruby = { "standardrb" },
           markdown = { { "prettierd", "prettier" } },
           erb = { "htmlbeautifier" },
           html = { "htmlbeautifier" },
@@ -376,7 +374,6 @@ return {
           "go",
           "tsx",
           "bash",
-          "ruby",
           "markdown",
           "java",
         },
@@ -549,12 +546,6 @@ return {
           dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close({})
           end
-        end,
-      },
-      {
-        "suketa/nvim-dap-ruby",
-        config = function()
-          require("dap-ruby").setup()
         end,
       },
       {
