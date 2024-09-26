@@ -43,3 +43,25 @@ vim.cmd("colorscheme catppuccin")
 vim.cmd("colorscheme tokyonight")
 
 vim.cmd("colorscheme catppuccin")
+
+vim.cmd("colorscheme monokai")
+
+vim.cmd("colorscheme catppuccin")
+
+vim.cmd("colorscheme monokai_pro")
+
+vim.cmd("colorscheme monokai")
+
+vim.cmd("colorscheme monokai")
+
+vim.cmd("colorscheme monokai_pro")
+
+vim.cmd("colorscheme monokai_soda")
+
+vim.cmd("colorscheme monokai_ristretto")
+
+vim.cmd("colorscheme monokai")
+
+vim.cmd("colorscheme catppuccin")
+
+vim.cmd("colorscheme monokai")

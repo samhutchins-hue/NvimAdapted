@@ -447,6 +447,9 @@ return {
     "ellisonleao/gruvbox.nvim",
   },
   {
+    "tanvirtin/monokai.nvim",
+  },
+  {
     "exosyphon/telescope-color-picker.nvim",
     config = function()
       vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
@@ -476,94 +479,6 @@ return {
     config = function()
       require("nvim-autopairs").setup()
     end,
-  },
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      "olimorris/neotest-rspec",
-      "haydenmeade/neotest-jest",
-      "zidhuss/neotest-minitest",
-      "mfussenegger/nvim-dap",
-      "jfpedroza/neotest-elixir",
-      "weilbith/neotest-gradle",
-    },
-    opts = {},
-    config = function()
-      local neotest = require("neotest")
-
-      local neotest_jest = require("neotest-jest")({
-        jestCommand = "npm test --",
-      })
-      neotest_jest.filter_dir = function(name)
-        return name ~= "node_modules" and name ~= "__snapshots__"
-      end
-
-      neotest.setup({
-        adapters = {
-          require("neotest-gradle"),
-          require("neotest-rspec")({
-            rspec_cmd = function()
-              return vim.tbl_flatten({
-                "bundle",
-                "exec",
-                "rspec",
-              })
-            end,
-          }),
-          neotest_jest,
-          require("neotest-minitest"),
-          require("neotest-elixir"),
-        },
-        output_panel = {
-          enabled = true,
-          open = "botright split | resize 15",
-        },
-        quickfix = {
-          open = false,
-        },
-      })
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      {
-        "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio",
-        config = function(_, opts)
-          local dap = require("dap")
-          local dapui = require("dapui")
-          dapui.setup(opts)
-          dap.listeners.after.event_initialized["dapui_config"] = function()
-            dapui.open({})
-          end
-          dap.listeners.before.event_terminated["dapui_config"] = function()
-            dapui.close({})
-          end
-          dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close({})
-          end
-        end,
-      },
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = "mason.nvim",
-        cmd = { "DapInstall", "DapUninstall" },
-        opts = {
-          automatic_installation = true,
-          handlers = {},
-          ensure_installed = {},
-        },
-      },
-      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-    },
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -728,6 +643,7 @@ return {
           "taplo",
           "shellcheck",
           "ts_ls",
+          "codelldb",
         },
       })
     end,
