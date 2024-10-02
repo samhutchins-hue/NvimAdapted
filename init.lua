@@ -20,6 +20,10 @@ require("lazy").setup("plugins", {
   },
 })
 
+require'lspconfig'.clangd.setup {
+  cmd = { "clangd", "--compile-commands-dir=." },
+}
+
 require('aremihc.globals')
 require('aremihc.remaps')
 require('aremihc.options')
@@ -65,3 +69,11 @@ vim.cmd("colorscheme monokai")
 vim.cmd("colorscheme catppuccin")
 
 vim.cmd("colorscheme monokai")
+
+vim.cmd("colorscheme catppuccin-latte")
+
+vim.cmd("colorscheme catppuccin-mocha")
+
+vim.cmd("colorscheme rose-pine")
+
+vim.cmd("colorscheme rose-pine")
