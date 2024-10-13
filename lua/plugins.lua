@@ -487,7 +487,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "tokyonight",
+          theme = "rose-pine",
         },
         sections = {
           lualine_a = { "mode" },
